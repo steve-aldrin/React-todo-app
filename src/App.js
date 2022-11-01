@@ -47,7 +47,7 @@ function cleardone() {
 }
   return (
   <>
-     <div className="text-center bg-teal-600 flex flex-col justify-center items-center " >
+     <div className="text-center w-50 h-50 ml-20 mr-20 border border-transparent text-sm font-medium rounded bg-teal-600 flex flex-col justify-center items-center " >
     <Todolist todos={todos} toggleTodo={toggleTodo}/>
    
 
@@ -61,7 +61,13 @@ function cleardone() {
 </button>
     <button onClick={clearlist} className="space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors "> Clear Done Task</button>
     <button onClick={cleardone} className="m-5 space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors "> Clear List</button>
-    <div className="text-center" >{todos.filter(todo=>!todo.complete).length} left to do</div></div>
+    
+
+
+    
+<div class="py-3 px-4 bg-green-50 rounded-lg text-green-500">
+<div className="text-center" >{todos.filter(todo=>!todo.complete).length} left to do</div></div>
+</div>
 </>
   )
 
