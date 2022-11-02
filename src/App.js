@@ -9,6 +9,7 @@ const LOCAL_STORAGE_KEY ='todoApp.todos'
 function App() {
   const todoref=useRef()
   const [todos,settodos]=useState([])
+  const [Styles,setstyles]=useState(["m-2 space-x-20 py-1 px-1 border border-transparent text-sm font-medium rounded text-red-600 hover:text-green-700 bg-red-50 hover:bg-green-100 transition-colors"])
 
 useEffect(()=>{
   const storedtodos=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
@@ -28,6 +29,7 @@ function toggleTodo(id){
   const todo= newTodos.find(todo=> todo.id === id)
   todo.complete=!todo.complete
   settodos(newTodos)
+  
 }
   function add(e){
  const name= todoref.current.value
@@ -47,8 +49,9 @@ function cleardone() {
 }
   return (
   <>
-     <div className="text-center w-50 h-50 ml-20 mr-20 border border-transparent text-sm font-medium rounded bg-teal-600 flex flex-col justify-center items-center " >
-    <Todolist todos={todos} toggleTodo={toggleTodo}/>
+     <p className="text-center font-medium text-white mb-1 text-lg underline decoration-teal-600 decoration-2 ">Todo App</p>
+     <div className="text-center my-35 w-22 h-50 ml-20 mr-20 border-8 border-slate-900 border-solid text-sm font-medium rounded-lg bg-teal-600 flex flex-col justify-center items-center " >
+    <Todolist style={Styles} todos={todos} toggleTodo={toggleTodo}/>
    
 
     <div>  <label for="input1" class="text-sm text-lime-200 block mb-1 font-medium m-4"> Enter A Task </label>  <input type="text"  ref={todoref} name="input1" id="input1" class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700" placeholder="eg:Homework"/></div>
@@ -62,7 +65,6 @@ function cleardone() {
     <button onClick={clearlist} className="space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors "> Clear Done Task</button>
     <button onClick={cleardone} className="m-5 space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors "> Clear List</button>
     
-
 
     
 <div class="py-3 px-4 bg-green-50 rounded-lg text-green-500">
